@@ -1,0 +1,17 @@
+{
+  "name": "js-hello-world-example-library",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Fredrik Johansson <jeanfredrik@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "clean": "rm -rf dist && rm -rf lib",
+    "build": "yarn build:umd && yarn build:node",
+    "build:umd": "parcel build src/index.js --out-file dist/hello-world.js --global HelloWorld",
+    "build:node": "parcel build src/**/* --out-dir lib --target node --no-minify --no-source-maps",
+    "prepare": "yarn clean && yarn build"
+  },
+  "devDependencies": {
+    "parcel-bundler": "^1.12.4"
+  }
+}
